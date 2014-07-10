@@ -11,5 +11,8 @@
     "reconnect": "^2.0.1",
     "request": "^2.37.0",
     "yargs": "^1.2.6"
+  },
+  "bin": {
+    "tzbot": "./bot.js"
   }
 }
