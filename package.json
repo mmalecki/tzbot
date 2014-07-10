@@ -8,7 +8,7 @@
     "url": "https://github.com/mmalecki/tzbot.git"
   },
   "dependencies": {
-    "ircb": "~0.4.0",
+    "ircb": "git+https://github.com/mmalecki/ircb.git#stream",
     "reconnect": "^2.0.1",
     "request": "^2.37.0",
     "yargs": "^1.2.6"
