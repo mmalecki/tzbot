@@ -24,6 +24,9 @@ var args = require('yargs')
   .demand('username')
   .describe('username', 'Bot\' username')
 
+  .alias('channel', 'c')
+  .describe('channel', 'Channel(s) to connect to')
+
   .argv
 
 var tzbot = require('./tzbot.js')
@@ -33,7 +36,8 @@ reconnect(function (stream) {
   var irc = IRCb({
     nick: args.nick,
     realName: args['real-name'],
-    username: args.username
+    username: args.username,
+    channels: Array.isArray(args.channel) ? args.channel : [args.channel]
   })
   stream.pipe(irc).pipe(stream)
   tzbot(irc)
