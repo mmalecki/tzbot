@@ -9,9 +9,9 @@ function timeToString(d) {
 }
 
 module.exports = function tzbot(ircb) {
-  function reply(to, message) {
-    console.log('checking ' + message + ' for ' + to)
-    getTime(message, function (err, time) {
+  function reply(to, location) {
+    console.log('checking ' + location + ' for ' + to)
+    getTime(location, function (err, time) {
       ircb.say(to, timeToString(time))
     })
   }
@@ -19,7 +19,9 @@ module.exports = function tzbot(ircb) {
   ircb.on('message', function (from, to, message) {
     // If this is a direct message, reply to the person who sent it.
     if (to === ircb.nick) return reply(from, message)
-    // If this is a channel message, reply to the channel.
-    reply(to, message)
+    // If this is a channel message, check if it's meant for us and reply to
+    // the channel.
+    var match = message.match(new RegExp('^' + ircb.nick + '[,:]? (.+)'));
+    if (match) reply(to, match[1])
   })
 }
