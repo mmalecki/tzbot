@@ -1,7 +1,7 @@
 {
   "name": "tzbot",
   "author": "Maciej Małecki <me@mmalecki.com>",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An IRC time zone bot using Google Maps to tell time basing on a search term",
   "repository": {
     "type": "git",
