@@ -14,5 +14,6 @@
   },
   "bin": {
     "tzbot": "./bot.js"
-  }
+  },
+  "license": "MIT"
 }
